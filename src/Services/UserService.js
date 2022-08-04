@@ -1,6 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 
-const USER_API = 'http://localhost:8080/api/v1/employees';
+const USER_API = 'https://jsonplaceholder.typicode.com/users';
 
 class UserService {
   getUsers() {
