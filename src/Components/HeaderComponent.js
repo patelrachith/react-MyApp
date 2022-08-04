@@ -11,7 +11,7 @@ function HeaderComponent() {
 
   return (
     <>
-      <img src={Logo} />
+      {/* <img src={Logo} /> */}
       <h1>React App</h1>
       <button onClick={() => redirect('/')}>Home</button>
       <button onClick={() => redirect('/about')}>About</button>
