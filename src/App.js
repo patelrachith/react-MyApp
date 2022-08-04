@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 export default function App() {
   return (
     <div>
-      <Router forceRefresh={true}>
+      <Router>
         <HeaderComponent />
         <div className="container">
           <Switch>
