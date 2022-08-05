@@ -1,7 +1,12 @@
 import React from 'react';
 
 function FooterComponent() {
-  return <>Footer</>;
+  return (
+    <>
+      <hr />
+      Footer
+    </>
+  );
 }
 
 export default FooterComponent;
