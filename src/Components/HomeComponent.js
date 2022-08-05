@@ -16,6 +16,18 @@ function HomeComponent() {
     });
   }, []);
 
+  function userChange(e) {
+    console.log('selected user:' + e);
+  }
+
+  const handleChange = (e) => {
+    //debugger;
+    console.log(
+      'selected user:' + e.target.options[e.target.selectedIndex].text
+    );
+    //setValue(e.target.value);
+  };
+
   return (
     <>
       <h3> I am home component </h3>
@@ -23,9 +35,9 @@ function HomeComponent() {
       <div>Array length: {users.length}</div>
 
       <label>Select a User:</label>
-      <select>
+      <select onChange={handleChange}>
         {users.map((user, index) => (
-          <option key={user.id}>{user.name}</option>
+          <option value={user.id}>{user.name}</option>
         ))}
       </select>
     </>
