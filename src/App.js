@@ -17,7 +17,7 @@ export default function App() {
             <Route exact path="/" component={HomeComponent} />
             <Route exact path="/home" component={HomeComponent} />
             <Route exact path="/about" component={AboutComponent} />
-            <Route exact path="/viewuser" component={ViewUserComponent} />
+            <Route path="/viewuser" component={ViewUserComponent} />
           </Switch>
         </div>
         <FooterComponent />

@@ -6,6 +6,7 @@ function HomeComponent() {
   let history = useHistory();
   const [users, setUsers] = useState([]);
   const [count, setCount] = useState(0);
+  const [selectUserID, setSelectUserID] = useState(0);
 
   useEffect(() => {
     console.log('call userEffect');
@@ -24,9 +25,11 @@ function HomeComponent() {
 
   const handleChange = (e) => {
     //debugger;
+    setSelectUserID(e.target.value);
     console.log(
-      'selected user:' + e.target.options[e.target.selectedIndex].text
+      'selected user Name:' + e.target.options[e.target.selectedIndex].text
     );
+    console.log('selected user ID:' + e.target.value);
     //setValue(e.target.value);
   };
 
@@ -36,26 +39,51 @@ function HomeComponent() {
   };
 
   function redirect(path) {
-    history.push(path);
+    console.log('Select User:' + selectUserID);
+    //history.push(path);
+
+    history.push({
+      pathname: path,
+      search: '?userID=abc',
+      state: { selectUserID: selectUserID },
+    });
   }
 
   return (
     <>
-      <h3> I am home component </h3>
-      <div>Array length: {count}</div>
-      <div>Array length: {users.length}</div>
-
-      <label>Select a User:</label>
-      <select onChange={handleChange}>
-        {users.map((user, index) => (
-          <option value={user.id}>{user.name}</option>
-        ))}
-      </select>
-      <div class="footer">
-        <button onClick={() => onViewUser()} type="submit" class="btn">
-          View User
-        </button>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2">Number of users: {users.length}</div>
+        </div>
       </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2">Select User:</div>
+          <div class="col-sm-4">
+            <select onChange={handleChange}>
+              {users.map((user, index) => (
+                <option value={user.id}>{user.name}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4">
+            <button
+              onClick={() => onViewUser()}
+              type="submit"
+              class="btn btn-primary"
+            >
+              View user details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <label></label>
+
+      <div class="footer"></div>
     </>
   );
 }

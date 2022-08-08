@@ -13,8 +13,17 @@ function HeaderComponent() {
     <>
       {/* <img src={Logo} /> */}
       <h1>React App</h1>
-      <button onClick={() => redirect('/')}>Home</button>
-      <button onClick={() => redirect('/about')}>About</button>
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-outline-primary" onClick={() => redirect('/')}>
+          Home
+        </button>
+        <button
+          class="btn btn-outline-primary"
+          onClick={() => redirect('/about')}
+        >
+          About
+        </button>
+      </div>
       <hr />
     </>
   );
